@@ -39,6 +39,7 @@
        "org.mockito"                     % "mockito-core"                    % "5.1.1"    % "test",
        "commons-io"                      % "commons-io"                      % "2.11.0",
        "io.reactivex.rxjava2"            % "rxjava"                          % "2.2.21",
+       "com.github.javafaker"             %  "javafaker"                      % "1.0.0" % "it, test"
      )
  )
  .enablePlugins(PlayJava, JavaAgent, BuildInfoPlugin)
