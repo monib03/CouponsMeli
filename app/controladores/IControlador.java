@@ -1,6 +1,7 @@
 package controladores;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import dominio.comandos.Comando;
 import dominio.respuestas.Error;
 import dominio.respuestas.ErrorValidacion;
 import infraestructura.acl.dto.DTO;
