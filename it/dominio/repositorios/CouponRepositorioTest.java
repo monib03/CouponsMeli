@@ -133,14 +133,11 @@ public class CouponRepositorioTest extends PruebaConBDTest {
         couponRepositorio.insertarBookmark(bookmark6, user4.getId()).get().get();//3
         couponRepositorio.insertarBookmark(bookmark8, user4.getId()).get().get();//4
 
-
         couponRepositorio.insertarBookmark(bookmark1, user5.getId()).get().get();//4
         couponRepositorio.insertarBookmark(bookmark2, user5.getId()).get().get();//4
         couponRepositorio.insertarBookmark(bookmark3, user5.getId()).get().get();//3
         couponRepositorio.insertarBookmark(bookmark4, user5.getId()).get().get();//5
         couponRepositorio.insertarBookmark(bookmark8, user5.getId()).get().get();//5
-
-
 
         couponRepositorio.insertarBookmark(bookmark1, user6.getId()).get().get();//5
         couponRepositorio.insertarBookmark(bookmark2, user6.getId()).get().get();//5
@@ -149,7 +146,6 @@ public class CouponRepositorioTest extends PruebaConBDTest {
         couponRepositorio.insertarBookmark(bookmark8, user6.getId()).get().get();//6
 
         couponRepositorio.insertarBookmark(bookmark8, user7.getId()).get().get();//7
-
 
         List<BookmarkTopRecord> resp = couponRepositorio.consultarTopBookmarks().get();
         assertEquals("La lista de respuesta tiene size 5", 5, resp.size());

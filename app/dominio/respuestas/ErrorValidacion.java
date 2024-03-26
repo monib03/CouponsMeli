@@ -1,15 +1,11 @@
 package dominio.respuestas;
 
-import io.vavr.collection.List;
-
 public class ErrorValidacion implements Error {
 
     private String mensaje;
-    private List<String> campos;
 
-    public ErrorValidacion(String mensaje, List<String> campos) {
+    public ErrorValidacion(String mensaje) {
         this.mensaje = mensaje;
-        this.campos = campos;
     }
 
     @Override
@@ -17,8 +13,5 @@ public class ErrorValidacion implements Error {
         return mensaje;
     }
 
-    public List<String> getCampos() {
-        return campos;
-    }
 }
 

@@ -1,11 +1,19 @@
 package infraestructura.acl.dto;
 
 public class BookmarkTopDTO implements DTO{
-    private String item_id;
+    private String id;
     private Long quantity;
 
-    public BookmarkTopDTO(String item_id, Long quantity) {
-        this.item_id = item_id;
+    public BookmarkTopDTO(String id, Long quantity) {
+        this.id = id;
         this.quantity = quantity;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Long getQuantity() {
+        return quantity;
     }
 }
