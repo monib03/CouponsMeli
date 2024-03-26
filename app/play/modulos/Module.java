@@ -16,7 +16,7 @@ public class Module extends AbstractModule {
 
     @Override
     public void configure() {
-        bind(JacksonModulo.class).asEagerSingleton();
+        bind(JacksonModule.class).asEagerSingleton();
         bind(LogConfiguracion.class).asEagerSingleton();
     }
 }

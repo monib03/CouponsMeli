@@ -1,3 +1,5 @@
+package play.modulos;
+
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
 import play.Logger;

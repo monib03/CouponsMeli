@@ -5,7 +5,6 @@ import org.joda.time.DateTime;
 
 public class Bookmark {
 
-
     private DateTime bookmarked_date;
     private Item item;
 

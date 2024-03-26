@@ -16,7 +16,7 @@
      ),
      isSnapshot := true,
      buildInfoKeys := Seq[BuildInfoKey](name, version),
-     buildInfoPackage := "com.mymo.build",
+     buildInfoPackage := "com.meli.build",
      buildInfoObject := "BuildInfo",
      buildInfoOptions += BuildInfoOption.ToJson,
      libraryDependencies ++= Seq(
