@@ -20,4 +20,5 @@ public class ItemMeliDTO implements DTO {
     public float getPrice() {
         return price;
     }
+
 }

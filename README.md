@@ -11,6 +11,8 @@ se desea ejecutar
 * Java JRE versión 11 o superior
 * SBT 
 * Docker
+* Docker-compose
+* Sql
 
 ## Inicio
 
@@ -22,21 +24,14 @@ se desea ejecutar
   * Es necesario en ciertos sistemas operativos tener permisos de root para los siguientes comandos
   * Se debe reemplazar el valor de <password> con una contraseña segura que usted pueda recordar
 
-        docker pull postgres
-        docker run --name postgres-db -e POSTGRES_PASSWORD=<password> -d postgres 
-  
-* Obtener la ip del docker.
-
-         docker inspect postgres-db | grep IPAddress
-
-* Conectarse a la base de datos y crear una base de datos con el nombre coupon:
-
-         psql -h IPAddress -p 5432 -U postgres
-         create database coupon;
-         create database prueba_coupon;
+        bash documentacion/inicio.sh  
 
 * Importar en un IDE de su preferencia el proyecto, tener en cuenta que se usa SBT
  
+* Levantar ambiente para su ejecución
+
+        bash documentacion/subirAmbienteLocal.sh
+
 * Para ejecutar el proyecto basta con el siguiente comando
 
       sbt run
@@ -50,9 +45,25 @@ se desea ejecutar
 ##### Version
 * /coupon/version
 ##### Top 5 items favoritos
-* /coupon/stats
+  * /coupon/stats
+    * Esta funcionalidad no se encuentra conectada a los servicios de Meli, para hacer pruebas en ambiente se deben 
+    registrar items, usuarios y bookmarks en BD, se pueden usar los que se encuentran en el archivo documentacion/inserts.sql
+
+          curl --location 'http://localhost:9000/coupon/stats'
+
+    * Response example
+          
+          [{"id":"MLA1","quantity":15},{"id":"MLA2","quantity":10}]
 
 #### POST
 ##### Compra items coupon
 * /coupon/
+        
+        curl --location 'http://localhost:9000/coupon' \ --header 'Content-Type: application/json' \ --data '{"item_ids": ["MLA1523624734","MLA1523624720","MLA1523624746","MLA1523624728","MLA1523624750","MLA1523624760"],"amount": 17000 }'
 
+    * Response example
+
+             {"items_ids": ["MLA1523624750","MLA1523624720","MLA1523624760","MLA1523624728"],"total": 16976.0 }
+## Documentación
+
+![Alt text](documentacion/Diagrams.png?raw=true "Diagrama")

@@ -20,7 +20,7 @@ public class RedimirCoupon implements Comando {
 
     private final Logger.ALogger logger = Logger.of(this.getClass());
 
-    private ServicioRedencionCoupons servicioRedencionCoupons;
+    private final ServicioRedencionCoupons servicioRedencionCoupons;
 
     @Inject
     public RedimirCoupon(ServicioRedencionCoupons servicioRedencionCoupons) {
@@ -30,13 +30,13 @@ public class RedimirCoupon implements Comando {
     @Override
     public Future<Either<Error, DTO>> ejecutar(JsonNode json) {
         logger.info("Se va maximixar redencion de cupon" + json);
-        return transformar(json).fold(
-                e -> obtenerConsecuenciaFallida("Error en el json.", e.toList()),
+        return (Future<Either<Error, DTO>>) transformar(json).fold(
+                e -> (Error) obtenerConsecuenciaFallida(e.toString()),
                 this::maximizarUsoCupon
         );
     }
 
-    private Future<Either<Error, DTO>> maximizarUsoCupon(RedimirCouponsDTO dto){
+    private Future<Either<Error, RedimirCouponsRespuestaDTO>> maximizarUsoCupon(RedimirCouponsDTO dto){
         return servicioRedencionCoupons.maximizarUsoCupon(dto);
     }
 
@@ -45,9 +45,9 @@ public class RedimirCoupon implements Comando {
                 .toEither(List.of("Json invalido")).flatMap(RedimirCouponsDTO::validar);
     }
 
-    private Future<Either<Error, DTO>> obtenerConsecuenciaFallida(String mensaje, List<String> errores) {
+    private Future<Either<ErrorValidacion, RedimirCouponsDTO>> obtenerConsecuenciaFallida(String mensaje) {
         ErrorValidacion error = new ErrorValidacion(mensaje);
-        logger.error("Ocurrió un error maximixando redencion de cupon: " + error.getMensaje() + errores, error);
+        logger.error("Ocurrió un error maximixando redencion del cupon: " + error.getMensaje(), error);
         return Future.successful(Either.left(error));
     }
 

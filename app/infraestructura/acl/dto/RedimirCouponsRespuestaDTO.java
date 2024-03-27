@@ -1,12 +1,13 @@
 package infraestructura.acl.dto;
 
-import java.util.List;
+
+import io.vavr.collection.List;
 
 public class RedimirCouponsRespuestaDTO implements DTO{
     private final List<String> items_ids;
-    private final Long total;
+    private final Double total;
 
-    public RedimirCouponsRespuestaDTO(List<String> items_ids, Long total) {
+    public RedimirCouponsRespuestaDTO(List<String> items_ids, Double total) {
         this.items_ids = items_ids;
         this.total = total;
     }
@@ -15,7 +16,7 @@ public class RedimirCouponsRespuestaDTO implements DTO{
         return items_ids;
     }
 
-    public Long getTotal() {
+    public Double getTotal() {
         return total;
     }
 }

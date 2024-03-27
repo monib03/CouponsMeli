@@ -31,7 +31,7 @@ public class RedimirCouponsDTO implements DTOValidacion<RedimirCouponsDTO> {
         return item_ids;
     }
 
-    public float getAmount() {
+    public long getAmount() {
         return amount;
     }
 

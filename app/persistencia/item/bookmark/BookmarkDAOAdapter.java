@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 public class BookmarkDAOAdapter {
 
     private BookmarkDAOAdapter() {
+        throw new IllegalStateException("Esta clase no debe ser instanciada");
     }
 
     public static Bookmark transformar (BookmarkRecord bookmarkRecord, Item item){
