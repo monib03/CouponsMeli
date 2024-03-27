@@ -1,0 +1,51 @@
+yum update -y
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+systemctl status httpd
+cd /var/www/html
+nano index.html
+
+--
+<html><body><h1> Hello Cloud </h1></body></html>
+--
+
+sudo yum update -y
+
+--install git
+sudo yum install -y git
+
+--install docker
+sudo yum install docker -y
+sudo systemctl start docker
+sudo docker run hello-world
+sudo systemctl enable docker
+docker --version
+sudo usermod -a -G docker $(whoami)
+newgrp docker
+
+--install docker-compose
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+
+--install sbt
+sudo rm -f /etc/yum.repos.d/bintray-rpm.repo
+curl -L https://www.scala-sbt.org/sbt-rpm.repo > sbt-rpm.repo
+sudo mv sbt-rpm.repo /etc/yum.repos.d/
+sudo yum install sbt
+
+--psql
+sudo yum install postgresql15
+
+--java
+sudo yum install java-11-amazon-corretto
+
+--Proyecto
+git clone https://github.com/monib03/CouponsMeli
+cd CouponsMeli/documentacion/
+bash ./inicio.sh
+cd ..
+--correr en docker
+docker build -t coupons .
+--correr sbt

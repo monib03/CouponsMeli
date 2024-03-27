@@ -30,16 +30,11 @@
        "org.immutables"                  % "value"                           % "2.10.0",
        "org.jdbi"                        % "jdbi3-core"                      % "3.37.1",
        "org.jdbi"                        % "jdbi3-sqlobject"                 % "3.37.1",
-       "org.antlr"                       % "ST4"                             % "4.3.4",
        "org.postgresql"                  % "postgresql"                      % "42.5.4",
-       "org.apache.commons"              % "commons-lang3"                   % "3.12.0",
        "com.fasterxml.jackson.module"    %% "jackson-module-scala"           % "2.14.2" ,
        "com.fasterxml.jackson.module"    % "jackson-module-parameter-names"  % "2.14.2",
        "com.fasterxml.jackson.datatype"  % "jackson-datatype-jsr310"         % "2.14.2",
        "org.mockito"                     % "mockito-core"                    % "5.1.1"    % "test",
-       "commons-io"                      % "commons-io"                      % "2.11.0",
-       "io.reactivex.rxjava2"            % "rxjava"                          % "2.2.21",
-       "com.github.javafaker"             %  "javafaker"                      % "1.0.0" % "it, test"
      )
  )
  .enablePlugins(PlayJava, JavaAgent, BuildInfoPlugin)

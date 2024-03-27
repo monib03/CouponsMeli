@@ -1,20 +1,23 @@
 package fabrica.dominio;
 
-
-import com.github.javafaker.Faker;
 import dominio.modelo.item.Item;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class ItemFabrica {
 
-    private Faker faker = new Faker();
     private String id;
     private float price;
 
     public ItemFabrica(){
+        Random r = new Random();
+        int low = 10000;
+        int high = 1000000;
+        int result = r.nextInt(high-low) + low;
+
         id = UUID.randomUUID().toString();
-        price = (float) faker.number().numberBetween(10000, 1000000);
+        price = (float) result;
     }
 
     public Item get(){
