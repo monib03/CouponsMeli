@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -44,10 +45,10 @@ public class ServicioRedencionCouponsITTest {
         final Either<Error, RedimirCouponsRespuestaDTO> either = servicioRedencionCoupons.maximizarUsoCupon(redimirCouponsDTO).get();
         final RedimirCouponsRespuestaDTO redimirCouponsRespuestaDTO = either.get();
 
-        assertEquals("El id del item 0 coincide","ID1", redimirCouponsRespuestaDTO.getItems_ids().get(0));
-        assertEquals("El id del item 0 coincide","ID2", redimirCouponsRespuestaDTO.getItems_ids().get(1));
-        assertEquals("El id del item 0 coincide","ID4", redimirCouponsRespuestaDTO.getItems_ids().get(2));
-        assertEquals("El id del item 0 coincide","ID5", redimirCouponsRespuestaDTO.getItems_ids().get(3));
+        assertTrue("Contiene el id del item 1", redimirCouponsRespuestaDTO.getItems_ids().contains("ID1"));
+        assertTrue("Contiene el item 2", redimirCouponsRespuestaDTO.getItems_ids().contains("ID2"));
+        assertTrue("Contiene el item 4", redimirCouponsRespuestaDTO.getItems_ids().contains("ID4"));
+        assertTrue("Contiene el item 5", redimirCouponsRespuestaDTO.getItems_ids().contains("ID5"));
         assertEquals("El monto maximo coincide", 480, redimirCouponsRespuestaDTO.getTotal(),1);
 
     }

@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 import static play.mvc.Http.Status.OK;
 import static play.test.Helpers.*;
 
-
 public class CouponsControladorTest extends WithApplication {
 
     @Override
@@ -46,5 +45,4 @@ public class CouponsControladorTest extends WithApplication {
         Result result = route(app, request);
         assertEquals(OK, result.status());
     }
-
 }
