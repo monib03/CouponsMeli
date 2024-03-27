@@ -1,0 +1,9 @@
+#!/bin/bash
+yum update -y
+yum install postgresql15
+rm -f /etc/yum.repos.d/bintray-rpm.repo
+curl -L https://www.scala-sbt.org/sbt-rpm.repo > sbt-rpm.repo
+mv sbt-rpm.repo /etc/yum.repos.d/
+yum install sbt
+yum install java-11-amazon-corretto
+yum install -y git
